@@ -6,72 +6,20 @@ import {BsPlus} from 'react-icons/bs'
 import './index.css'
 
 class CartItem extends Component {
-  state = {quantity: 0, isShow: true}
-
-  componentDidMount() {
-    this.removeUnNecessaryData()
-    this.getTheCartData()
-  }
-
-  removeUnNecessaryData = () => {
-    const cartData = JSON.parse(localStorage.getItem('cartData')) || []
-    if (cartData.length > 0) {
-      const updateCartData = cartData.filter(eachItem => eachItem.quantity >= 1)
-      localStorage.setItem('cartData', JSON.stringify(updateCartData))
-    }
-  }
-
-  getTheCartData = () => {
-    const cartData = JSON.parse(localStorage.getItem('cartData')) || []
-    const {eachCartItem, updatingWholeCart} = this.props
-    const updateData = cartData.filter(
-      eachItem => eachItem.id === eachCartItem.id,
-    )
-    const newlyCart = updateData.pop()
-    this.setState({quantity: newlyCart.quantity})
-    updatingWholeCart()
-  }
-
   incrementCartItemQuantity = () => {
-    const cartData = JSON.parse(localStorage.getItem('cartData'))
-    const {eachCartItem} = this.props
-
-    const updateCartDataAndState = cartData.map(eachItem => {
-      if (eachItem.id === eachCartItem.id) {
-        const quantity = eachItem.quantity + 1
-        this.setState({quantity})
-        return {...eachItem, quantity}
-      }
-      return {...eachItem}
-    })
-    localStorage.setItem('cartData', JSON.stringify(updateCartDataAndState))
-    this.getTheCartData()
+    const {eachCartItem, incrementQuantityWithId} = this.props
+    const {id} = eachCartItem
+    incrementQuantityWithId(id)
   }
 
   decrementCartItemQuantity = () => {
-    const cartData = JSON.parse(localStorage.getItem('cartData'))
-    const {eachCartItem} = this.props
-    const updateCartDataAndState = cartData.map(eachItem => {
-      if (eachItem.id === eachCartItem.id) {
-        const quantity = eachItem.quantity - 1
-        this.setState({quantity})
-        if (quantity >= 1) {
-          return {...eachItem, quantity}
-        }
-        this.setState({isShow: false})
-        return {...eachItem, quantity}
-      }
-      return {...eachItem}
-    })
-
-    localStorage.setItem('cartData', JSON.stringify(updateCartDataAndState))
-    this.getTheCartData()
-    this.removeUnNecessaryData()
+    const {eachCartItem, decrementQuantityWithId} = this.props
+    const {id} = eachCartItem
+    decrementQuantityWithId(id)
   }
 
   renderCompleteList = () => {
     const {eachCartItem} = this.props
-    const {quantity} = this.state
 
     return (
       <>
@@ -99,7 +47,7 @@ class CartItem extends Component {
                   testid="item-quantity"
                   className="cart-item-plus-minus-count-value"
                 >
-                  {quantity}
+                  {eachCartItem.quantity}
                 </p>
                 <button
                   className="cart-item-plus-minus-button"
@@ -122,9 +70,7 @@ class CartItem extends Component {
   }
 
   render() {
-    const {isShow} = this.state
-
-    return <>{isShow && this.renderCompleteList()}</>
+    return <>{this.renderCompleteList()}</>
   }
 }
 

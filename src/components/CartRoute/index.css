@@ -28,6 +28,8 @@
 .cart-route-cart-item-un-order-container {
   width: 100%;
   list-style: none;
+  margin: 0px;
+  padding: 0px;
 }
 .cart-route-horizontal-line {
   border: 1px dashed #cbd2d9;

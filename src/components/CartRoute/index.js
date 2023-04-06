@@ -19,15 +19,10 @@ const cartEmptyUrl =
   'https://res.cloudinary.com/dppqkea7f/image/upload/v1625831743/cart-no-order_qivsro.png'
 
 class CartRoute extends Component {
-  state = {cartData: [], cartStatus: cartStatusConstants.initial, totalValue: 0}
+  state = {cartData: [], cartStatus: cartStatusConstants.initial}
 
   componentDidMount() {
-    this.calculateTheTotalAmount()
     this.getTheCartData()
-  }
-
-  updatingWholeCart = () => {
-    this.calculateTheTotalAmount()
   }
 
   getTheCartData = () => {
@@ -42,14 +37,33 @@ class CartRoute extends Component {
     }
   }
 
-  calculateTheTotalAmount = () => {
-    const cartData = JSON.parse(localStorage.getItem('cartData')) || []
-    if (cartData.length > 0) {
-      const cartDataValue = cartData.map(each => each.quantity * each.cost)
-      const reduceSum = cartDataValue.reduce((a, b) => a + b)
-      this.setState({totalValue: reduceSum}, this.getTheCartData())
-    }
+  incrementQuantityWithId = uniqueId => {
+    const cartData = JSON.parse(localStorage.getItem('cartData'))
+    const changeInData = cartData.map(eachItem => {
+      if (eachItem.id === uniqueId) {
+        const quantity = eachItem.quantity + 1
+        return {...eachItem, quantity}
+      }
+      return eachItem
+    })
+    localStorage.setItem('cartData', JSON.stringify(changeInData))
+    this.setState({cartData: changeInData})
   }
+
+  decrementQuantityWithId = uniqueId => {
+    const cartData = JSON.parse(localStorage.getItem('cartData'))
+    const changeInData = cartData.map(eachItem => {
+      if (eachItem.id === uniqueId) {
+        const quantity = eachItem.quantity - 1
+        return {...eachItem, quantity}
+      }
+      return eachItem
+    })
+    localStorage.setItem('cartData', JSON.stringify(changeInData))
+    this.setState({cartData: changeInData})
+  }
+
+  calculateTheTotalAmount = () => {}
 
   goToHomePage = () => {
     const {history} = this.props
@@ -101,8 +115,8 @@ class CartRoute extends Component {
   )
 
   cartItemsView = () => {
-    const {cartData, totalValue} = this.state
-
+    const {cartData} = this.state
+    const totalValue = 0
     return (
       <>
         <div className="cart-route-main-container-with-footer">
@@ -110,9 +124,10 @@ class CartRoute extends Component {
             <ul className="cart-route-cart-item-un-order-container">
               {cartData.map(eachItem => (
                 <CartItem
-                  updatingWholeCart={this.updatingWholeCart}
                   key={eachItem.id}
                   eachCartItem={eachItem}
+                  incrementQuantityWithId={this.incrementQuantityWithId}
+                  decrementQuantityWithId={this.decrementQuantityWithId}
                 />
               ))}
             </ul>
