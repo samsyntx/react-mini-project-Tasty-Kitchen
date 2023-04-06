@@ -1,3 +1,8 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
 .login-route-main-bg-container {
   min-height: 100vh;
   display: flex;

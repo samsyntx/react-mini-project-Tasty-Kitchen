@@ -47,7 +47,7 @@ class CartRoute extends Component {
       return eachItem
     })
     localStorage.setItem('cartData', JSON.stringify(changeInData))
-    this.setState({cartData: changeInData})
+    this.getTheCartData()
   }
 
   decrementQuantityWithId = uniqueId => {
@@ -60,10 +60,27 @@ class CartRoute extends Component {
       return eachItem
     })
     localStorage.setItem('cartData', JSON.stringify(changeInData))
-    this.setState({cartData: changeInData})
+    this.removeUnNecessaryData()
+    this.getTheCartData()
   }
 
-  calculateTheTotalAmount = () => {}
+  removeUnNecessaryData = () => {
+    const cartData = JSON.parse(localStorage.getItem('cartData')) || []
+    const filtering = cartData.filter(eachItem => eachItem.quantity >= 1)
+    const newCartData = [...filtering]
+    localStorage.setItem('cartData', JSON.stringify(newCartData))
+    this.getTheCartData()
+  }
+
+  calculateTheTotalAmount = () => {
+    const cartData = JSON.parse(localStorage.getItem('cartData')) || []
+    if (cartData.length > 0) {
+      const cartValue = cartData.map(each => each.quantity * each.cost)
+      const reduceValue = cartValue.reduce((a, b) => a + b)
+      return reduceValue
+    }
+    return 0
+  }
 
   goToHomePage = () => {
     const {history} = this.props
@@ -116,7 +133,7 @@ class CartRoute extends Component {
 
   cartItemsView = () => {
     const {cartData} = this.state
-    const totalValue = 0
+    const totalValue = this.calculateTheTotalAmount()
     return (
       <>
         <div className="cart-route-main-container-with-footer">
