@@ -66,51 +66,62 @@ class Login extends Component {
     const {username, password, showErrorMsg, errorMsg} = this.state
 
     return (
-      <div className="BgContainer">
+      <div className="login-route-main-bg-container">
         <img
           src="https://res.cloudinary.com/dqmmxqwiq/image/upload/v1679850742/Tasty%20Kitchen%20React%20mini%20Project/Rectangle_1456_ymkaxu.png"
           alt="website login"
-          className="LargeImage"
+          className="login-route-large-landing-image"
         />
-        <div className="LoginContainer">
-          <img src={logoUrl} className="Logo" alt="website logo" />
-          <h1 className="LargeHeading">Tasty Kitchens</h1>
-          <img
-            className="Rectangle"
-            src="https://res.cloudinary.com/dqmmxqwiq/image/upload/v1679846331/Tasty%20Kitchen%20React%20mini%20Project/Rectangle_1457_mjvqdx.png"
-            alt="website login"
-          />
-
-          <h1 className="LoginHeading">Login</h1>
-          <form className="FormContainer" onSubmit={this.onSubmitForm}>
-            <label htmlFor="userName" className="LabelElement">
-              USERNAME
-            </label>
-            <input
-              type="text"
-              id="userName"
-              className="InputElement"
-              onChange={this.onChangeUsername}
-              value={username}
-              placeholder="USER NAME"
-            />
-            <label htmlFor="password" className="LabelElement">
-              PASSWORD
-            </label>
-            <input
-              type="password"
-              id="password"
-              className="InputElement"
-              onChange={this.onChangePassword}
-              value={password}
-              placeholder="PASSWORD"
+        <div className="login-content-container-for-large-center">
+          <div className="login-route-login-container-complete">
+            <div className="login-route-login-logo-text-container">
+              <img
+                src={logoUrl}
+                className="login-route-large-logo"
+                alt="website logo"
+              />
+              <h1 className="login-route-large-logo-text">Tasty Kitchens</h1>
+            </div>
+            <img
+              className="login-route-small-image-landing-container"
+              src="https://res.cloudinary.com/dqmmxqwiq/image/upload/v1679846331/Tasty%20Kitchen%20React%20mini%20Project/Rectangle_1457_mjvqdx.png"
+              alt="website login"
             />
 
-            {showErrorMsg ? <p className="ErrorMsg">*{errorMsg}</p> : null}
-            <button className="LoginButton" type="submit">
-              Login
-            </button>
-          </form>
+            <h1 className="login-route-login-heading">Login</h1>
+            <form
+              className="login-route-form-container"
+              onSubmit={this.onSubmitForm}
+            >
+              <label htmlFor="userName" className="login-route-label-element">
+                USERNAME
+              </label>
+              <input
+                type="text"
+                id="userName"
+                className="login-route-input-element"
+                onChange={this.onChangeUsername}
+                value={username}
+                placeholder="USER NAME"
+              />
+              <label htmlFor="password" className="login-route-label-element">
+                PASSWORD
+              </label>
+              <input
+                type="password"
+                id="password"
+                className="login-route-input-element"
+                onChange={this.onChangePassword}
+                value={password}
+                placeholder="PASSWORD"
+              />
+
+              {showErrorMsg ? <p className="ErrorMsg">*{errorMsg}</p> : null}
+              <button className="login-route-form-submit-button" type="submit">
+                Login
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     )

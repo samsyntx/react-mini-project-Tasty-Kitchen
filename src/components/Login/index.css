@@ -1,10 +1,10 @@
-.BgContainer {
+.login-route-main-bg-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.LoginContainer {
+.login-route-login-container-complete {
   display: flex;
   flex-direction: column;
   border-radius: 0px;
@@ -13,14 +13,12 @@
   align-items: center;
   width: 100%;
 }
-.Logo {
-  display: none;
-}
-.Rectangle {
+
+.login-route-small-image-landing-container {
   align-self: flex-end;
 }
 
-.LoginHeading {
+.login-route-login-heading {
   height: 32px;
   width: 90%;
   font-family: DM Sans;
@@ -32,12 +30,12 @@
   color: #0f172a;
   margin-left: 16px;
 }
-.FormContainer {
+.login-route-form-container {
   display: flex;
   flex-direction: column;
   width: 90%;
 }
-.FormContainer .LabelElement {
+.login-route-label-element {
   height: 16px;
   width: 66px;
   left: 0px;
@@ -53,7 +51,7 @@
   color: #475569;
   margin-bottom: 6px;
 }
-.FormContainer .InputElement {
+.login-route-input-element {
   height: 40px;
   padding: 15px;
   font-weight: 500;
@@ -66,7 +64,7 @@
   margin-bottom: 18px;
   outline: none;
 }
-.FormContainer .LoginButton {
+.login-route-form-submit-button {
   height: 40px;
   left: 0px;
   top: 0px;
@@ -76,95 +74,59 @@
   align-self: stretch;
   color: #ffffff;
 }
-.BgContainer .LargeImage {
+.login-route-large-landing-image {
   display: none;
 }
-
-@media screen and (min-width: 600px) {
-  .BgContainer {
-    flex-direction: row;
-    min-height: 100vh;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .BgContainer .LargeImage {
-    display: block;
-    width: 60%;
-    min-height: 100vh;
-    margin: 0px;
-    order: 2;
-  }
-  .Rectangle {
+.login-route-login-logo-text-container {
+  display: none;
+}
+.login-content-container-for-large-center {
+  width: 100%;
+  height: 100vh;
+}
+@media all and (min-width: 550px) {
+  .login-route-small-image-landing-container {
     display: none;
   }
-  .LoginContainer {
-    height: 523px;
-    width: 456px;
-    left: 165px;
-    top: 250px;
-    border-radius: 8px;
-    background: #fefeff;
-    box-shadow: 0px 8px 40px 0px #07070714;
-    margin: 20px;
-    margin-left: 150px;
-  }
-  .LoginHeading {
-    align-self: center;
-  }
-}
-.LoginContainer .ShowPasswordBox {
-  display: flex;
-  justify-content: space-between;
-  width: 150px;
-  align-items: center;
-  height: auto;
-  margin-bottom: 16px;
-}
-.LoginContainer .ShowPasswordBox .CheckboxElement {
-  width: 20px;
-  height: 20px;
-}
-.LoginContainer .ShowPasswordBox .ShowPasswordLabel {
-  text-align: center;
-  font-size: 15px;
-  font-weight: 500;
-  color: #475569;
-  font-family: roboto;
-}
-
-.ErrorMsg {
-  height: 18px;
-  width: 273px;
-  left: 213px;
-  top: 654px;
-  border-radius: nullpx;
-  font-family: DM Sans;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: #ef4444;
-}
-
-.LoginContainer .LargeHeading {
-  display: none;
-}
-@media screen and (min-width: 750px) {
-  .LoginContainer .LargeHeading {
+  .login-route-large-landing-image {
     display: block;
-    font-family: DM Sans;
-    font-size: 24px;
+    width: 50%;
+    height: 100vh;
+    order: 2;
+  }
+  .login-route-main-bg-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .login-route-login-container-complete {
+    box-shadow: 2px 2px 10px #888888;
+    padding: 20px 10px 20px 10px;
+    margin: 15px;
+    border-radius: 15px;
+    max-width: 300px;
+  }
+  .login-route-login-logo-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-route-large-logo-text {
+    font-family: 'DM Sans';
     font-style: italic;
     font-weight: 700;
-    line-height: 32px;
-    letter-spacing: 0px;
+    font-size: 24px;
     color: #f7931e;
-
-    text-align: left;
+    margin: 0px;
   }
-  .Logo {
-    display: block;
+  .login-content-container-for-large-center {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
