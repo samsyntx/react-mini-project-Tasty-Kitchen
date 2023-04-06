@@ -4,7 +4,7 @@ import {Redirect} from 'react-router-dom'
 import './index.css'
 
 const logoUrl =
-  'https://res.cloudinary.com/dppqkea7f/image/upload/v1625742512/Frame_274_zlrzwk.svg'
+  'https://res.cloudinary.com/dqmmxqwiq/image/upload/v1679851948/Tasty%20Kitchen%20React%20mini%20Project/Frame_274_cgiuza.png'
 
 class Login extends Component {
   state = {
@@ -47,9 +47,9 @@ class Login extends Component {
       body: JSON.stringify(userDetails),
     }
     const response = await fetch(apiLoginUrl, options)
-    console.log(response)
+
     const data = await response.json()
-    console.log(data)
+
     if (response.ok === true) {
       this.successLogin(data.jwt_token)
     } else {
