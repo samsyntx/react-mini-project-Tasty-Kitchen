@@ -1,0 +1,36 @@
+.not-found-complete-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'DM Sans';
+  font-style: normal;
+  padding: 20px;
+  text-align: center;
+  color: #1e293b;
+}
+
+.not-found-route-main-image {
+  width: 150px;
+}
+.not-found-route-main-heading {
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 48px;
+}
+.not-found-route-main-paragraph {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  margin-bottom: 15px;
+}
+.not-found-route-redirect-home-button {
+  color: white;
+  gap: 8px;
+  width: 100px;
+  height: 35px;
+  background: #f7931e;
+  border-radius: 10px;
+  border: none;
+}

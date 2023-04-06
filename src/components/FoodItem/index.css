@@ -1,0 +1,74 @@
+.food-item-page-list-main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin: 10px;
+}
+.food-item-page-list-main-image-container {
+  width: 150px;
+  height: 120px;
+  margin-right: 15px;
+}
+.food-item-page-list-main-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.food-item-page-list-item-content-container {
+  font-family: 'DM Sans';
+  font-style: normal;
+  color: #334155;
+}
+.food-item-page--un-order-list-name {
+  font-size: 17px;
+}
+.food-item-page-un-order-list-rupee-container {
+  display: flex;
+  align-items: center;
+}
+.food-item-page-un-order-cost {
+  font-weight: 500;
+  font-size: 18px;
+  margin: 5px 0px 5px 0px;
+}
+.food-item-page-star {
+  color: #ffcc00;
+  margin-right: 5px;
+}
+.food-item-page-main-button {
+  background: none;
+  border: 2px solid #ffa412;
+  padding: 3px 10px 3px 10px;
+  color: #ffa412;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+@media all and (min-width: 768px) {
+  .food-item-page-list-main-container {
+    max-width: 300px;
+  }
+}
+.food-item-page-each-item-counter-container {
+  width: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 5px 0px 5px 0px;
+}
+.food-item-page-button-icon-container {
+  border: 1px solid #475569;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  padding: 5px;
+  color: #122239;
+}
+.food-item-page-count-value {
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #475569;
+}

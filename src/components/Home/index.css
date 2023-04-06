@@ -1,0 +1,71 @@
+* {
+  font-family: 'DM Sans';
+  font-style: normal;
+}
+
+.home-page-slider-container {
+  margin: 0px 0px 50px 0px;
+}
+.home-slider-container {
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* shortByRestaurant Style  */
+.home-sort-by-main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+.home-popular-restaurant-heading {
+  font-weight: 700;
+  font-size: 25px;
+  color: #183b56;
+  margin: 5px 0px 10px 0px;
+}
+.home-sort-by-content-paragraph {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  color: #64748b;
+  margin-bottom: 10px;
+}
+.home-sort-by-sorting-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.home-sort-by-sort-icon-paragraph {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+.home-sort-by-sort-icon-paragraph {
+  color: #475569;
+  margin: 0px 3px 0px 10px;
+  font-weight: 500;
+  font-size: 16px;
+}
+.home-page-sort-by-options-style {
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  color: #475569;
+  outline: none;
+  cursor: pointer;
+}
+.home-page-restaurant-un-order-list-data {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,41 @@
+.home-page-list-item-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px;
+}
+.home-list-item-thumbnail-image-container {
+  width: 150px;
+  height: 150px;
+  margin-right: 15px;
+}
+.home-list-item-thumbnail-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+.home-un-order-list-item-content-container {
+  font-family: 'DM Sans';
+  font-style: normal;
+  color: #334155;
+  width: 150px;
+}
+.home-un-order-list-name {
+  font-weight: 700;
+  font-size: 18px;
+  font-weight: 700;
+}
+.home-un-order-list-cuisine {
+  font-size: 15px;
+}
+.home-un-order-list-rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.home-un-order-list-star-rating {
+  font-weight: 700;
+  font-size: 16px;
+  margin: 5px;
+}
