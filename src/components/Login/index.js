@@ -70,7 +70,7 @@ class Login extends Component {
         <img
           src="https://res.cloudinary.com/dqmmxqwiq/image/upload/v1679850742/Tasty%20Kitchen%20React%20mini%20Project/Rectangle_1456_ymkaxu.png"
           alt="website login"
-          className="login-route-large-landing-image"
+          className="login-route-landing-image"
         />
         <div className="login-content-container-for-large-center">
           <div className="login-route-login-container-complete">
@@ -82,11 +82,6 @@ class Login extends Component {
               />
               <h1 className="login-route-large-logo-text">Tasty Kitchens</h1>
             </div>
-            <img
-              className="login-route-small-image-landing-container"
-              src="https://res.cloudinary.com/dqmmxqwiq/image/upload/v1679846331/Tasty%20Kitchen%20React%20mini%20Project/Rectangle_1457_mjvqdx.png"
-              alt="website login"
-            />
 
             <h1 className="login-route-login-heading">Login</h1>
             <form
@@ -116,7 +111,9 @@ class Login extends Component {
                 placeholder="PASSWORD"
               />
 
-              {showErrorMsg ? <p className="ErrorMsg">*{errorMsg}</p> : null}
+              {showErrorMsg ? (
+                <p className="login-route-error-msg">*{errorMsg}</p>
+              ) : null}
               <button className="login-route-form-submit-button" type="submit">
                 Login
               </button>
