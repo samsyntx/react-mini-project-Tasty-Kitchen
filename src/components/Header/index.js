@@ -3,7 +3,6 @@ import {withRouter, Link} from 'react-router-dom'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {AiFillCloseCircle} from 'react-icons/ai'
 import Cookies from 'js-cookie'
-import HeaderMenuItems from '../HeaderMenuItems/index'
 import './index.css'
 
 const headerLinksConstraint = [
@@ -12,7 +11,7 @@ const headerLinksConstraint = [
 ]
 
 class Header extends Component {
-  state = {isShowMobileMenu: false, activeLinkId: headerLinksConstraint[0].id}
+  state = {isShowMobileMenu: false}
 
   toggleMobileMenuOpen = () => {
     this.setState({
@@ -30,22 +29,25 @@ class Header extends Component {
     history.replace('/login')
   }
 
-  callToChangeActiveMenu = uniqueId => {
-    this.setState({activeLinkId: uniqueId})
-  }
-
   headerUnOrderListItemsAndButton = () => {
-    const {activeLinkId} = this.state
-
+    const {match} = this.props
+    const {path} = match
     return (
       <ul className="header-menu-un-order-list-items">
         {headerLinksConstraint.map(eachMenu => (
-          <HeaderMenuItems
-            eachMenuDetail={eachMenu}
-            key={eachMenu.id}
-            isActive={activeLinkId === eachMenu.id}
-            callToChangeActiveMenu={this.callToChangeActiveMenu}
-          />
+          <Link to={eachMenu.link}>
+            <li>
+              <button
+                className={`header-list-item-text ${
+                  path === eachMenu.link ? 'active-header-css' : ''
+                }`}
+                type="button"
+                onClick={this.clickToChange}
+              >
+                {eachMenu.text}
+              </button>
+            </li>
+          </Link>
         ))}
 
         <li>
