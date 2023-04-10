@@ -35,19 +35,18 @@ class Header extends Component {
     return (
       <ul className="header-menu-un-order-list-items">
         {headerLinksConstraint.map(eachMenu => (
-          <Link to={eachMenu.link}>
-            <li>
+          <li key={eachMenu.id}>
+            <Link to={eachMenu.link}>
               <button
                 className={`header-list-item-text ${
                   path === eachMenu.link ? 'active-header-css' : ''
                 }`}
                 type="button"
-                onClick={this.clickToChange}
               >
                 {eachMenu.text}
               </button>
-            </li>
-          </Link>
+            </Link>
+          </li>
         ))}
 
         <li>
