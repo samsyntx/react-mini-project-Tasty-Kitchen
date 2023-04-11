@@ -83,15 +83,17 @@ class Header extends Component {
         </div>
         <div className="complete-header-for-mobile-device">
           <div className="header-menu-mobile-show">
-            <div className="header-logo-image-container-mobile">
-              <img
-                src="https://res.cloudinary.com/dqmmxqwiq/image/upload/v1679851948/Tasty%20Kitchen%20React%20mini%20Project/Frame_274_cgiuza.png"
-                alt="logo"
-              />
-              <h1 className="tasty-kitchen-header-logo-text-mobile">
-                Tasty Kitchens
-              </h1>
-            </div>
+            <Link to="/" className="text-Decoration-for-link">
+              <div className="header-logo-image-container-mobile">
+                <img
+                  src="https://res.cloudinary.com/dqmmxqwiq/image/upload/v1679851948/Tasty%20Kitchen%20React%20mini%20Project/Frame_274_cgiuza.png"
+                  alt="logo"
+                />
+                <h1 className="tasty-kitchen-header-logo-text-mobile">
+                  Tasty Kitchens
+                </h1>
+              </div>
+            </Link>
             <button
               onClick={this.toggleMobileMenuOpen}
               className="mobile-menu-button"
