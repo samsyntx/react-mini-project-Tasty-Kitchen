@@ -97,7 +97,7 @@ class Login extends Component {
                 className="login-route-input-element"
                 onChange={this.onChangeUsername}
                 value={username}
-                placeholder="USER NAME"
+                placeholder="rahul"
               />
               <label htmlFor="password" className="login-route-label-element">
                 PASSWORD
@@ -108,7 +108,7 @@ class Login extends Component {
                 className="login-route-input-element"
                 onChange={this.onChangePassword}
                 value={password}
-                placeholder="PASSWORD"
+                placeholder="rahul@2021"
               />
 
               {showErrorMsg ? (
